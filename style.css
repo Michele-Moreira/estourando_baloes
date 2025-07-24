@@ -1,0 +1,172 @@
+/* Estilos Gerais */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    background-color: #f0f0f0;
+    flex-direction: column; /* Para centrar conteúdo verticalmente */
+}
+
+/* --- Estilos para index.html --- */
+.container-menu {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 350px; /* Limita a largura máxima no desktop */
+    width: 90%; /* Responsivo */
+    box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
+}
+
+.container-menu p {
+    margin-bottom: 20px;
+}
+
+.container-menu label {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.container-menu select {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    width: 150px; /* Largura fixa para o select */
+}
+
+.btn-iniciar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.btn-iniciar img {
+    max-width: 100%; /* Garante que a imagem se ajuste ao container */
+    height: auto;
+    display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+.recorde {
+    color: gold;
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+    margin-top: 25px;
+    font-size: 1.5rem; /* Tamanho da fonte responsivo */
+}
+
+/* --- Estilos para jogo.html --- */
+.game-container {
+    display: flex;
+    flex-direction: column; /* Coloca a info e o canvas um abaixo do outro em telas pequenas */
+    align-items: center;
+    width: 100%;
+    max-width: 900px; /* Limite máximo para o jogo */
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: #FFF;
+    border: solid 1px #A2A2A2;
+    padding: 10px 0;
+    margin-bottom: 10px; /* Espaço entre a info e o canvas */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha */
+    box-sizing: border-box;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 10px; /* Espaçamento entre os itens de informação */
+}
+
+.info-item .icon {
+    width: 40px; /* Tamanho ajustado para ícones */
+    height: 40px;
+    margin-right: 5px;
+}
+
+.info-item .count, .cronometro-text {
+    font-size: 1.8rem; /* Tamanho da fonte ajustado */
+    color: #333;
+    font-weight: bold;
+}
+
+.cronometro-box {
+    background: url('imagens/cronometro.png') no-repeat center center;
+    background-size: contain; /* Ajusta a imagem do cronômetro ao box */
+    width: 100px; /* Largura do cronômetro */
+    height: 90px; /* Altura do cronômetro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cronometro-text {
+    color: red;
+}
+
+.game-canvas {
+    width: 100%; /* Canvas ocupa a largura total disponível */
+    height: 400px; /* Altura padrão, será ajustada pelo JS */
+    background: url('imagens/cenario.png') no-repeat center center;
+    background-size: cover; /* Garante que o cenário preencha o canvas */
+    border: solid 1px #A2A2A2;
+    display: block; /* Remove qualquer espaço extra */
+}
+
+/* Media Queries para Telas Maiores (ex: Tablets em modo paisagem, Desktops) */
+@media (min-width: 768px) {
+    .game-container {
+        flex-direction: row; /* Volta para lado a lado */
+        justify-content: center;
+        align-items: flex-start; /* Alinha o topo do painel e do canvas */
+    }
+
+    .game-info {
+        flex-direction: column; /* Painel de informações em coluna */
+        width: 180px; /* Largura fixa para o painel lateral */
+        height: 500px; /* Altura do painel igual ao canvas */
+        margin-right: 15px; /* Espaçamento entre painel e canvas */
+        padding: 20px;
+        box-sizing: border-box;
+        justify-content: flex-start;
+    }
+
+    .info-item {
+        margin-bottom: 20px; /* Mais espaço entre os itens */
+    }
+
+    .game-canvas {
+        width: 600px; /* Largura padrão para desktop */
+        height: 500px; /* Altura padrão para desktop */
+    }
+}
+
+/* Media Query para telas menores (smartphones) */
+@media (max-width: 480px) {
+    .recorde {
+        font-size: 1.2rem;
+    }
+
+    .info-item .count, .cronometro-text {
+        font-size: 1.5rem;
+    }
+
+    .info-item .icon {
+        width: 30px;
+        height: 30px;
+    }
+}

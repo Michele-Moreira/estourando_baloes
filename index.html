@@ -1,46 +1,41 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html lang="pt-br">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Estourando balões</title>
-		<script language="Javascript">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estourando balões</title>
+        <link rel="stylesheet" href="style.css"> <script>
+            function iniciaJogo() {
+                var nivel_jogo = document.getElementById('nivel_jogo').value;
+                window.location.href = 'jogo.html?' + nivel_jogo;
+            }
+        </script>
+    </head>
 
-			function iniciaJogo() {
-				var nivel_jogo = document.getElementById('nivel_jogo').value;
+    <body>
+        <div class="container-menu">
+            <p>
+                <label for="nivel_jogo"><b>Nível:</b></label>
+                <select id="nivel_jogo" title="Selecione o nível do jogo">
+                    <option value="1">Fácil</option>
+                    <option value="2">Normal</option>
+                    <option value="3">Difícil</option>
+                </select>
+            </p>
+            <button class="btn-iniciar" onclick="iniciaJogo()">
+                <img src="imagens/iniciar.png" alt="Iniciar Jogo" />
+            </button>
+            
+            <h2 id="recorde_atual" class="recorde">🏅 Recorde atual: 0 pontos</h2>
+        </div>
 
-				window.location.href = 'jogo.html?'+ nivel_jogo;
-				
-			}
-		</script>
-
-	</head>
-
-	<body>
-		<div>
-			<p>
-				<label for="nivel_jogo"><b>Nível:</b></label>
-				<select id="nivel_jogo" title="Selecione o nível do jogo">
-					<option value="1">Fácil</option>
-					<option value="2">Normal</option>
-					<option value="3">Difícil</option>
-				</select>
-			</p>
-			<img src="imagens/iniciar.png" onclick="iniciaJogo()" />
-			
-			<h2 id="recorde_atual" style="color:gold; font-weight:bold; text-shadow:1px 1px black;">🏅 Recorde atual: 0 pontos</h2>
-		</div>
-
-		<script>
-    		// Mostra o recorde armazenado no navegador
-			window.onload = function () {
-        	let recorde = localStorage.getItem("recorde");
-        	recorde = recorde ? parseInt(recorde) : 0;
-
-        	document.getElementById("recorde_atual").innerHTML = `🏅 Recorde atual: ${recorde} pontos`; 
-        };
-		</script>
-
-	</body>
-	
+        <script>
+            // Mostra o recorde armazenado no navegador
+            window.onload = function () {
+                let recorde = localStorage.getItem("recorde");
+                recorde = recorde ? parseInt(recorde) : 0;
+                document.getElementById("recorde_atual").innerHTML = `🏅 Recorde atual: ${recorde} pontos`; 
+            };
+        </script>
+    </body>
 </html>
